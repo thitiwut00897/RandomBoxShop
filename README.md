@@ -1,207 +1,204 @@
-# 🐾 Pet Random Box Shop
+# 🐾 RandomBoxShop - Pet Collection Platform
 
-A modern React web application featuring a pet random box shopping system with authentication, payment processing, and a loot box feature with Line notifications.
+A modern React-based e-commerce platform for collecting random pet boxes from the Grow a Garden game. Users can purchase mystery boxes containing random pets with different rarity levels, manage their collection, and receive instant notifications.
 
-## 🚀 Features
+## ✨ Features
 
-### 🛍️ Shopping System
-- Product catalog with pet random boxes
-- Shopping cart functionality
-- Secure checkout process
-- Payment integration with Stripe
+### 🎁 Pet Box System
+- **Mystery Boxes**: Purchase boxes containing 1 random pet each
+- **Rarity System**: 8 different rarity levels (Common to Prismatic)
+- **Guaranteed Rare Finds**: Every box contains pets with guaranteed rarity
+- **Real Game Integration**: Pets sourced from official Grow a Garden API
 
-### 🔐 Authentication
-- Social login (Facebook, Discord, Google)
-- User session management
-- Protected routes
+### 🛒 E-commerce Features
+- **Shopping Cart**: Add/remove items, quantity management
+- **Secure Payments**: Stripe integration for payment processing
+- **Order Management**: Track order status and history
+- **User Authentication**: Auth0 integration for secure login
 
-### 🎰 Loot Box Feature
-- Random item spinner
-- Different rarity levels
-- Line notifications for wins
-- Pet collection system
+### 🎯 User Experience
+- **Pet Collection**: View and manage your pet collection
+- **Search & Filter**: Find pets by name, description, or rarity
+- **Line Notifications**: Instant notifications when opening boxes
+- **Responsive Design**: Beautiful UI that works on all devices
+- **Loading States**: Smooth user experience with loading indicators
 
-### 📱 Line Notifications
-- Purchase confirmations
-- Pet box opening notifications
-- Loot box win notifications
+### 🎨 Modern UI/UX
+- **Tailwind CSS**: Modern, responsive styling
+- **Lucide Icons**: Beautiful iconography
+- **Toast Notifications**: User feedback with react-hot-toast
+- **Gradient Design**: Eye-catching visual design
 
-## 🛠️ Tech Stack
+## 🚀 Tech Stack
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **Routing**: React Router v6
-- **State Management**: React Context API
-- **Authentication**: Firebase Auth
+- **Frontend**: React 19, TypeScript
+- **Styling**: Tailwind CSS, PostCSS
+- **Authentication**: Auth0
 - **Payments**: Stripe
-- **Notifications**: Line Notify API
-- **UI Components**: Lucide React Icons
+- **Icons**: Lucide React
+- **Notifications**: React Hot Toast
+- **Routing**: React Router DOM
+- **HTTP Client**: Axios
+- **Build Tool**: Create React App
 
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── Header.tsx        # Navigation header
-│   ├── Login.tsx         # Authentication component
-│   ├── ProductCard.tsx   # Product display card
-│   ├── Cart.tsx          # Shopping cart
-│   └── Spinner.tsx       # Loot box wheel
-├── contexts/
-│   ├── AuthContext.tsx   # Authentication state
-│   ├── CartContext.tsx   # Shopping cart state
-│   └── SpinnerContext.tsx # Loot box state
-├── pages/
-│   ├── Home.tsx          # Landing page
-│   └── Products.tsx      # Product catalog
-├── services/
-│   └── lineNotification.ts # Line notification service
-├── data/
-│   ├── products.ts       # Product data
-│   └── pets.ts           # Pet collection data
-└── types/
-    └── index.ts          # TypeScript definitions
-```
-
-## 🚀 Getting Started
+## 📦 Installation & Setup
 
 ### Prerequisites
 - Node.js (v16 or higher)
-- npm or yarn
+- npm or yarn package manager
 
-### Installation
-
-1. Clone the repository:
+### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd shop
+cd RandomBoxShop
 ```
 
-2. Install dependencies:
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-3. Set up environment variables:
-Create a `.env` file in the root directory:
+### 3. Environment Variables
+Create a `.env` file in the root directory with the following variables:
+
 ```env
-REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_key
-REACT_APP_LINE_NOTIFY_TOKEN=your_line_token
-REACT_APP_FIREBASE_CONFIG=your_firebase_config
+# Auth0 Configuration
+REACT_APP_AUTH0_DOMAIN=your-auth0-domain
+REACT_APP_AUTH0_CLIENT_ID=your-auth0-client-id
+REACT_APP_AUTH0_CALLBACK_URL=http://localhost:3000
+
+# Stripe Configuration
+REACT_APP_STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
+
+# API Configuration (if using external APIs)
+REACT_APP_API_BASE_URL=your-api-base-url
 ```
 
-4. Start the development server:
+### 4. Start Development Server
 ```bash
 npm start
 ```
 
 The application will be available at `http://localhost:3000`
 
+## 🏗️ Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── Cart.tsx        # Shopping cart component
+│   ├── Header.tsx      # Navigation header
+│   ├── Login.tsx       # Authentication component
+│   ├── PetBoxCard.tsx  # Pet box display card
+│   ├── ProductCard.tsx # Product display card
+│   └── Spinner.tsx     # Loading spinner
+├── contexts/           # React context providers
+│   ├── AuthContext.tsx # Authentication state
+│   ├── BagContext.tsx  # User's pet collection
+│   ├── CartContext.tsx # Shopping cart state
+│   └── SpinnerContext.tsx # Loading state management
+├── data/              # Static data files
+│   ├── pets.ts        # Pet data
+│   └── products.ts    # Product catalog
+├── pages/             # Main application pages
+│   ├── Bag.tsx        # User's pet collection
+│   ├── Home.tsx       # Landing page
+│   ├── Payment.tsx    # Payment processing
+│   └── Products.tsx   # Product catalog
+├── services/          # API and external services
+│   ├── lineNotification.ts # Line notification service
+│   └── petService.ts  # Pet API service
+└── types/             # TypeScript type definitions
+    └── index.ts       # Main type definitions
+```
+
 ## 🎮 How to Use
 
-### Authentication
-1. Click "Login" in the header
-2. Choose your preferred social login method
-3. Complete the authentication process
+### 1. Getting Started
+- Visit the homepage to see featured pet boxes
+- Browse available products in the Products section
+- Create an account or log in using Auth0
 
-### Shopping
-1. Browse pet random boxes on the home page or products page
-2. Add items to your cart
-3. Proceed to checkout
-4. Complete payment with Stripe
+### 2. Purchasing Pet Boxes
+- Add pet boxes to your cart
+- Proceed to checkout with Stripe payment
+- Receive instant Line notifications when boxes are opened
 
-### Loot Box System
-1. Navigate to the Loot Box page
-2. Click "Spin the Loot Box!" button
-3. Wait for the spinning animation
-4. Collect your random pet reward
-5. Receive Line notification of your win
+### 3. Managing Your Collection
+- View your pet collection in the Bag section
+- Search and filter pets by rarity
+- Track your collection progress
 
-### Pet Collection
-1. Purchase pet random boxes
-2. After successful purchase, you'll be redirected to see your pets
-3. View rarity breakdown and individual pets
-4. Collect pets from Common to Prismatic rarity
+### 4. Features Overview
+- **Home**: Featured boxes and pet gallery
+- **Products**: Browse all available pet boxes
+- **Cart**: Manage your shopping cart
+- **Bag**: View your pet collection
+- **Payment**: Secure checkout process
 
-## 🎯 Pet Rarity System
+## 🔧 Available Scripts
 
-- **Common** (40%): Basic pets with simple designs
-- **Uncommon** (25%): Slightly more unique pets
-- **Rare** (20%): Special pets with unique features
-- **Legendary** (10%): Highly sought-after pets
-- **Mythical** (3%): Extremely rare pets
-- **Divine** (1.5%): Divine pets with special powers
-- **Prismatic** (0.5%): The rarest pets with rainbow effects
+- `npm start` - Start development server
+- `npm build` - Build for production
+- `npm test` - Run test suite
+- `npm eject` - Eject from Create React App
 
-## 🔧 Configuration
+## 🎨 Customization
 
-### Stripe Setup
-1. Create a Stripe account
-2. Get your publishable key
-3. Add it to your environment variables
+### Styling
+The project uses Tailwind CSS for styling. You can customize:
+- Colors and themes in `tailwind.config.js`
+- Component styles in individual component files
+- Global styles in `src/index.css`
 
-### Line Notify Setup
-1. Create a Line Notify account
-2. Generate a token
-3. Add it to your environment variables
+### Adding New Features
+- **New Pet Types**: Add to `src/data/pets.ts`
+- **New Products**: Add to `src/data/products.ts`
+- **New Pages**: Create in `src/pages/` and add routes in `App.tsx`
+- **New Components**: Create in `src/components/`
 
-### Firebase Setup
-1. Create a Firebase project
-2. Enable Authentication
-3. Add your Firebase config to environment variables
+## 🔒 Security Features
 
-## 📱 Features in Detail
+- **Authentication**: Secure user authentication with Auth0
+- **Payment Security**: PCI-compliant payments with Stripe
+- **Environment Variables**: Sensitive data stored in environment variables
+- **Type Safety**: Full TypeScript implementation
 
-### Pet Random Boxes
-- **10 Pets Box**: $99.99 - Guaranteed 1+ Rare pets
-- **25 Pets Box**: $199.99 - Guaranteed 3+ Rare pets
-- **50 Pets Box**: $349.99 - Guaranteed 5+ Rare pets
-- **100 Pets Box**: $599.99 - Guaranteed 10+ Rare pets
+## 📱 Responsive Design
 
-### Loot Box System
-- Random pet rewards
-- Different rarity chances
-- Instant Line notifications
-- Collection tracking
-
-### Line Notifications
-- Purchase confirmations
-- Pet box opening results
-- Loot box wins
-- Detailed pet information
+The application is fully responsive and works on:
+- Desktop computers
+- Tablets
+- Mobile phones
+- All modern browsers
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🐛 Troubleshooting
+## 🆘 Support
 
-### Common Issues
+If you encounter any issues or have questions:
+1. Check the existing issues in the repository
+2. Create a new issue with detailed information
+3. Contact the development team
 
-1. **Tailwind CSS not working**: Make sure PostCSS is properly configured
-2. **Authentication errors**: Check Firebase configuration
-3. **Payment issues**: Verify Stripe keys
-4. **Line notifications not working**: Check Line Notify token
+## 🎯 Roadmap
 
-### Build Issues
+- [ ] Add more pet categories
+- [ ] Implement trading system
+- [ ] Add social features
+- [ ] Mobile app development
+- [ ] Advanced analytics dashboard
 
-If you encounter build errors:
-```bash
-npm run build
-```
+---
 
-For development:
-```bash
-npm start
-```
-
-## 📞 Support
-
-For support and questions, please open an issue in the repository.
-# RandomBoxShop
+**Happy Pet Collecting! 🐾✨**
